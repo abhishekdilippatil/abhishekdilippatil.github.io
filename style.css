@@ -63,7 +63,7 @@ a {
 }
 
 .language-hub {
-	width: min(900px, 100%);
+	width: 100%;
 	background: var(--card);
 	border: 1px solid var(--card-stroke);
 	border-radius: calc(var(--radius) + 4px);
@@ -104,7 +104,7 @@ a {
 }
 
 .site-shell {
-	width: min(1100px, 100%);
+	width: 100%;
 	margin: 0 auto;
 	padding: 1.2rem;
 }
@@ -151,7 +151,8 @@ a {
 }
 
 .hero p {
-	max-width: 68ch;
+	width: 100%;
+	max-width: none;
 	color: var(--ink-soft);
 }
 
@@ -179,22 +180,79 @@ a {
 
 .projects-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-	gap: 1rem;
+	grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+	gap: 1.25rem;
 }
 
 .project-card {
 	background: #fff;
 	border-radius: var(--radius);
 	border: 1px solid var(--card-stroke);
-	padding: 1rem;
+	padding: 1.25rem;
+	min-height: 220px;
 	box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
 	animation: rise 500ms ease both;
+}
+
+.spot-card {
+	position: relative;
+	min-height: 575px;
+	overflow: hidden;
+	padding: 0;
+	background: linear-gradient(180deg, rgba(10, 25, 28, 0.05) 20%, rgba(10, 25, 28, 0.62) 100%), url("images/SPOT.jpg") center / cover no-repeat;
+	display: flex;
+	align-items: flex-end;
+}
+
+.featured-spot {
+	background: rgba(255, 255, 255, 0.94);
+	border: 1px solid var(--card-stroke);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	padding: clamp(1.2rem, 3vw, 2rem);
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+.featured-spot h2 {
+	font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.spot-card::before {
+	display: none;
+}
+
+.project-card-content {
+	position: static;
+	padding: 1rem;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.94);
+}
+
+.spot-card .project-card-content {
+	background: transparent;
+	color: #fff;
+}
+
+.spot-card .project-card-content p {
+	color: rgba(255, 255, 255, 0.92);
+}
+
+.spot-card .button-link.secondary {
+	color: var(--accent-2);
+	border-color: var(--accent-2);
 }
 
 .project-card p {
 	margin: 0.6rem 0 0.9rem;
 	color: var(--ink-soft);
+	width: 100%;
+}
+
+.project-card h3,
+.detail-section h2,
+.detail-description {
+	width: 100%;
 }
 
 .project-links {
@@ -228,6 +286,86 @@ a {
 	color: var(--accent-2);
 	font-weight: 700;
 }
+
+.detail-page {
+	width: 100%;
+	margin: 0 auto;
+	padding: 1.2rem;
+}
+
+.detail-hero,
+.detail-section {
+	background: rgba(255, 255, 255, 0.88);
+	border: 1px solid var(--card-stroke);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.detail-section + .detail-section {
+	margin-top: 1rem;
+}
+
+.detail-hero {
+	margin-bottom: 1rem;
+}
+
+.detail-hero h1 {
+	font-size: clamp(2rem, 6vw, 4rem);
+}
+
+.detail-description {
+	max-width: none;
+	color: var(--ink-soft);
+}
+
+.detail-image {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+	margin: 1.4rem 0;
+}
+
+.resource-list {
+	display: grid;
+	gap: 0.8rem;
+	margin: 1rem 0 0;
+}
+
+.resource-link {
+	display: block;
+	background: #fff;
+	border: 1px solid var(--card-stroke);
+	border-left: 4px solid var(--accent);
+	border-radius: 10px;
+	padding: 0.85rem 1rem;
+	color: var(--accent-2);
+	font-weight: 700;
+	transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.resource-link:hover,
+.resource-link:focus-visible {
+	transform: translateX(3px);
+	box-shadow: 0 8px 18px rgba(17, 24, 39, 0.1);
+}
+
+.architecture-diagram {
+	overflow-x: auto;
+	margin: 1rem 0 2rem;
+	padding: 1rem;
+	background: #f7fbfa;
+	border: 1px solid var(--card-stroke);
+	border-radius: 10px;
+}
+
+.architecture-diagram img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
 
 @keyframes rise {
 	from {
