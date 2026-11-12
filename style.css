@@ -1,4 +1,5 @@
 :root {
+	color-scheme: light dark;
 	--bg-1: #f5efe2;
 	--bg-2: #d8ecff;
 	--ink: #1d2b2a;
@@ -6,6 +7,9 @@
 	--accent: #d95f34;
 	--accent-2: #007d6d;
 	--card: rgba(255, 255, 255, 0.72);
+	--surface: #ffffff;
+	--surface-soft: rgba(255, 255, 255, 0.88);
+	--surface-muted: #f7fbfa;
 	--card-stroke: rgba(0, 0, 0, 0.08);
 	--radius: 18px;
 	--shadow: 0 14px 40px rgba(17, 24, 39, 0.12);
@@ -22,7 +26,6 @@ body {
 }
 
 body {
-	min-height: 100vh;
 	color: var(--ink);
 	font-family: "Space Grotesk", "Segoe UI", sans-serif;
 	background: radial-gradient(circle at 10% 20%, #fff7e6 0%, transparent 30%),
@@ -78,19 +81,18 @@ a {
 }
 
 .lead {
-	max-width: 60ch;
 	color: var(--ink-soft);
 }
 
 .language-grid {
 	margin-top: 2rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
 }
 
 .lang-card {
-	background: #ffffff;
+	background: var(--surface);
 	border: 1px solid var(--card-stroke);
 	border-radius: var(--radius);
 	padding: 1.2rem;
@@ -127,13 +129,35 @@ a {
 	padding: 0.48rem 0.8rem;
 	border-radius: 999px;
 	border: 1px solid var(--card-stroke);
-	background: #fff;
+	background: var(--surface);
 }
 
 .pill.active {
 	background: var(--accent-2);
 	color: #fff;
 	border-color: transparent;
+}
+
+.language-button {
+	display: inline-flex;
+	min-width: 3.6rem;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.18rem;
+	padding: 0.45rem 0.65rem 0.4rem;
+}
+
+.language-flag {
+	font-size: 1.35rem;
+	line-height: 1;
+}
+
+.language-code {
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	line-height: 1;
 }
 
 .hero {
@@ -152,7 +176,6 @@ a {
 
 .hero p {
 	width: 100%;
-	max-width: none;
 	color: var(--ink-soft);
 }
 
@@ -180,53 +203,39 @@ a {
 
 .projects-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+	grid-template-columns: repeat(4, 1fr);
 	gap: 1.25rem;
+	align-items: start;
 }
 
 .project-card {
-	background: #fff;
+	background: var(--surface);
 	border-radius: var(--radius);
 	border: 1px solid var(--card-stroke);
 	padding: 1.25rem;
-	min-height: 220px;
 	box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
 	animation: rise 500ms ease both;
 }
 
 .spot-card {
 	position: relative;
-	min-height: 575px;
+	aspect-ratio: 369 / 800;
 	overflow: hidden;
 	padding: 0;
-	background: linear-gradient(180deg, rgba(10, 25, 28, 0.05) 20%, rgba(10, 25, 28, 0.62) 100%), url("images/SPOT.jpg") center / cover no-repeat;
+	background-color: #20302f;
+	background-image: linear-gradient(180deg, rgba(10, 25, 28, 0.05) 20%, rgba(10, 25, 28, 0.62) 100%), url("images/SPOT.jpg");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
 	display: flex;
 	align-items: flex-end;
-}
-
-.featured-spot {
-	background: rgba(255, 255, 255, 0.94);
-	border: 1px solid var(--card-stroke);
-	border-radius: var(--radius);
-	box-shadow: var(--shadow);
-	padding: clamp(1.2rem, 3vw, 2rem);
-	margin-top: 1rem;
-	margin-bottom: 2rem;
-}
-
-.featured-spot h2 {
-	font-size: clamp(1.8rem, 4vw, 3rem);
-}
-
-.spot-card::before {
-	display: none;
 }
 
 .project-card-content {
 	position: static;
 	padding: 1rem;
 	width: 100%;
-	background: rgba(255, 255, 255, 0.94);
+	background: var(--surface-soft);
 }
 
 .spot-card .project-card-content {
@@ -236,11 +245,6 @@ a {
 
 .spot-card .project-card-content p {
 	color: rgba(255, 255, 255, 0.92);
-}
-
-.spot-card .button-link.secondary {
-	color: var(--accent-2);
-	border-color: var(--accent-2);
 }
 
 .project-card p {
@@ -276,7 +280,7 @@ a {
 
 .contact {
 	margin-top: 2rem;
-	background: rgba(255, 255, 255, 0.84);
+	background: var(--surface-soft);
 	border: 1px solid var(--card-stroke);
 	border-radius: var(--radius);
 	padding: 1rem;
@@ -295,7 +299,7 @@ a {
 
 .detail-hero,
 .detail-section {
-	background: rgba(255, 255, 255, 0.88);
+	background: var(--surface-soft);
 	border: 1px solid var(--card-stroke);
 	border-radius: var(--radius);
 	box-shadow: var(--shadow);
@@ -315,27 +319,20 @@ a {
 }
 
 .detail-description {
-	max-width: none;
 	color: var(--ink-soft);
 }
 
-.detail-image {
-	display: block;
-	width: 100%;
-	height: auto;
-	border-radius: 12px;
-	margin: 1.4rem 0;
-}
-
 .resource-list {
-	display: grid;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
 	gap: 0.8rem;
 	margin: 1rem 0 0;
 }
 
 .resource-link {
 	display: block;
-	background: #fff;
+	background: var(--surface);
 	border: 1px solid var(--card-stroke);
 	border-left: 4px solid var(--accent);
 	border-radius: 10px;
@@ -351,19 +348,76 @@ a {
 	box-shadow: 0 8px 18px rgba(17, 24, 39, 0.1);
 }
 
+.resource-icon-link {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.github-link {
+	justify-content: center;
+}
+
+.resource-icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	flex: 0 0 auto;
+}
+
 .architecture-diagram {
+	width: 100%;
 	overflow-x: auto;
 	margin: 1rem 0 2rem;
 	padding: 1rem;
-	background: #f7fbfa;
+	background: var(--surface-muted);
 	border: 1px solid var(--card-stroke);
 	border-radius: 10px;
 }
 
 .architecture-diagram img {
 	display: block;
-	width: 100%;
+	width: auto;
+	max-width: 100%;
 	height: auto;
+	margin: 0 auto;
+}
+
+.architecture-diagram figcaption {
+	margin-top: 0.65rem;
+	color: var(--ink-soft);
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+.implementation-gallery {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+.implementation-gallery figure {
+	width: 100%;
+	margin: 0;
+	padding: 0.75rem;
+	background: var(--surface);
+	border: 1px solid var(--card-stroke);
+	border-radius: 10px;
+}
+
+.implementation-gallery img {
+	display: block;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
+	border-radius: 6px;
+}
+
+.implementation-gallery figcaption {
+	margin-top: 0.65rem;
+	color: var(--ink-soft);
+	font-size: 0.9rem;
+	font-weight: 700;
 }
 
 
@@ -386,5 +440,40 @@ a {
 
 	.site-shell {
 		padding: 0.9rem;
+	}
+
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.language-grid {
+		grid-template-columns: 1fr;
+	}
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-1: #10191a;
+		--bg-2: #203638;
+		--ink: #f2f7f5;
+		--ink-soft: #c1d0cc;
+		--accent: #f07a4d;
+		--accent-2: #42b6a4;
+		--card: rgba(22, 36, 37, 0.84);
+		--surface: #1a2a2b;
+		--surface-soft: rgba(26, 42, 43, 0.94);
+		--surface-muted: #142526;
+		--card-stroke: rgba(255, 255, 255, 0.14);
+		--shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+	}
+
+	.tag-list li {
+		background: rgba(26, 42, 43, 0.9);
+	}
+
+	.button-link.secondary {
+		color: var(--accent-2);
+		border-color: var(--accent-2);
 	}
 }
